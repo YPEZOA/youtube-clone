@@ -1,0 +1,9 @@
+<nav class="nav navbar-dark">
+  <a href="/videos" class="navbar-brand">
+    YPTube
+  </a>
+  <div class="container search">
+    <input type="text" class="form-control" placeholder="Search" (change)="handleChangeValue($event)">
+    <i class="fa fa-search" (click)="handleChangeValue($event)"></i>
+  </div>
+</nav>

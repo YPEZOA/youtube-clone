@@ -1,3 +1,10 @@
+.container-see_video {
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  flex-direction: row;
+}
+
 .main-container {
   display: flex;
   flex-direction: row;
@@ -10,10 +17,22 @@
     .container-results {
       .videoImage {
         cursor: pointer;
+        border: 2px solid #f2f2f2;
         margin-bottom: 20px;
         width: 27rem;
         height: 250px !important;
       }
+    }
+  }
+  .video-title {
+    color: #fff;
+  }
+  .channel-info {
+    .description-video {
+      color: #939393;
+    }
+    .channel-name {
+      color: #939393;
     }
   }
 
@@ -44,5 +63,5 @@
       transition: 80ms;
     }
   }
-  
+
 }

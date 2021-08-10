@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() searchCoincidences = new EventEmitter<string>();
   @Input() context:any;
-  
+
   constructor() {}
 
   ngOnInit(): void {

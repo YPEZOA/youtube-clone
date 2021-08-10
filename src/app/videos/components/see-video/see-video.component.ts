@@ -7,7 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SeeVideoComponent implements OnInit {
 
-  @Input() videoId: string | undefined;
+  @Input() videoId!: string;
+  @Input() title!: string;
+  @Input() description!: string;
+  @Input() channel!: string;
+  @Input() publishedAt!: string;
+  @Input() url: any;
+  @Input() query!: string;
 
   constructor() { }
 

@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SeeVideoComponent } from './components/see-video/see-video.component';
+import { MoreVideosShowComponent } from './components/more-videos-show/more-videos-show.component';
 
 
 
@@ -15,6 +16,7 @@ import { SeeVideoComponent } from './components/see-video/see-video.component';
     HeaderComponent,
     SidebarComponent,
     SeeVideoComponent,
+    MoreVideosShowComponent,
   ],
   imports: [
     CommonModule,

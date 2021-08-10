@@ -1,3 +1,16 @@
-<div class="container-view_video">
-  <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0"></iframe>
+<div class="main-container">
+  <div class="container-view_video">
+    <iframe [src]="url" frameborder="0" width="60%" height="32rem" scrolling="no"></iframe>
+    <h3>{{ title }}</h3>
+    <div class="contain-date">
+      <p> <small>Channel: </small> <strong>{{ channel }}</strong></p>
+      <small>{{ publishedAt | date: 'fullDate'}}</small>
+    </div>
+    <span class="description">{{ description }}</span>
+  </div>
+
+  <div class="container-more-videos">
+      <app-more-videos-show [query]="query"></app-more-videos-show>
+  </div>
 </div>
+

@@ -1,17 +1,16 @@
 <app-header (searchCoincidences)="searchVideos($event)" [context]="context"></app-header>
 <app-sidebar></app-sidebar>
 <div *ngIf="!seeVideo" class="main-container">
-  <div class="data-container" *ngFor="let result of results">
+  <div class="data-container" *ngFor="let video of videos">
     <div *ngIf="context === 'video'" class="container-results">
       <div class="info-video">
-        <img [src]="result.snippet.thumbnails.medium.url" alt="videoImage" class="videoImage">
-        <h5>{{ result.snippet.title }}</h5>
+        <img [src]="video.snippet.thumbnails.medium.url" alt="videoImage" class="videoImage" (click)="onSeeVideo(video)">
+        <h5 class="video-title">{{ video.snippet.title }}</h5>
         <div class="channel-info">
-          <img  alt="channelImage">          
-          <span>{{ result.snippet.channelTitle }}</span>
+          <span class="channel-name"><small>Channel: </small> <strong>{{ video.snippet.channelTitle }}</strong></span>
           <hr>
           <div class="description-video">
-            <p>{{ result.snippet.description}}</p>
+            <p>{{ video.snippet.description}}</p>
           </div>
         </div>
       </div>
@@ -19,5 +18,14 @@
   </div>
   <!-- <button class="btn btn-info" (click)="onGetMoreVideos()">Más +</button> -->
   <i class="fa fa-arrow-up upToPage" *ngIf="this.showButton" (click)="onScrollTop()"></i>
-  <app-see-video [videoId]="videoId" *ngIf="seeVideo"></app-see-video>
 </div>
+
+<app-see-video *ngIf="seeVideo"
+  [videoId]="videoId"
+  [channel]="channel"
+  [description]="description"
+  [publishedAt]="publishedAt"
+  [title]="title"
+  [query]="query"
+  [url]="url()">
+</app-see-video>

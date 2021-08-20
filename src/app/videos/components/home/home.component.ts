@@ -10,8 +10,6 @@ import { YoutubeVideosService } from '../../services/youtube-videos.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  //
-
   tokenNextPage!: string;
   context!: string;
   query!: string;
@@ -45,8 +43,6 @@ export class HomeComponent implements OnInit {
       this.description = video.snippet.description;
       this.publishedAt = video.snippet.publishedAt;
       this.title = video.snippet.title;
-      this.youtubeService.getChannel(this.channelId)
-        .subscribe(channel => console.log(channel))
     }
   }
 

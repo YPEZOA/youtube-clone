@@ -1,1 +1,11 @@
-<p>more-videos-show works!</p>
+<div class="main-container">
+  <div *ngFor="let items of data" class="container-view_video">
+    <img [src]="items.snippet.thumbnails.medium.url" alt="video-image" (click)="handleSeeVideo(items.id.videoId)">
+    <h3>{{ items.snippet.title  }}</h3>
+    <div class="contain-date">
+      <p> <small>Channel: </small> <strong>{{ items.snippet.channelTitle }}</strong></p>
+      <small>{{ items.snippet.publishedAt | date: 'fullDate' }}</small>
+    </div>
+    <span class="description">{{ items.snippet.description }}</span>
+  </div>
+</div>

@@ -10,7 +10,7 @@
   </div>
 
   <div class="container-more-videos">
-      <app-more-videos-show [query]="query"></app-more-videos-show>
+      <app-more-videos-show [query]="query" (seeVideo)="onSeeVideo($event)"></app-more-videos-show>
   </div>
 </div>
 

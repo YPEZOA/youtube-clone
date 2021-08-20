@@ -12,12 +12,17 @@ export class SeeVideoComponent implements OnInit {
   @Input() description!: string;
   @Input() channel!: string;
   @Input() publishedAt!: string;
-  @Input() url: any;
+  @Input() url!: any;
   @Input() query!: string;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
+  }
+
+  public onSeeVideo(event: any) {
+    this.url = event;
+    console.log(this.url, event)
   }
 
 }

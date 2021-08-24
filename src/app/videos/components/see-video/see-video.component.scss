@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-evenly;
   margin-left: 14rem;
+  
   .container-view_video {
     margin-top: 50px;
     width: 54%;
@@ -25,10 +26,10 @@
   }
 
   .container-more-videos {
-    border: 1px solid #f2f2f2;
+    border: 1px solid #939393;
     width: 24%;
     margin-top: 50px;
-    height: 21.3cm;
+    height: 14.9cm;
     overflow-y: scroll;
   }
 }

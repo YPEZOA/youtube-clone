@@ -1,9 +1,20 @@
 .main-container {
-  .container-view_video {
-    text-align: center;
-    margin-top: 20px;
-    .description {
-      color: #939393;
+  padding: 30px;
+  h3 {
+    color: #f2f2f2;
+    font-size: 19px;
+    margin-top: 3px;
+  }
+  img {
+    cursor: pointer;
+  }
+  .contain-date {
+    color: #939393;
+    .channel-title {
+      padding:0px;
     }
+  }
+  .container-view_video {
+    margin-top: 20px;
   }
 }

@@ -24,7 +24,7 @@ export class YoutubeVideosService {
   }
 
   searchVideosCoincidences(query: string): Observable<any> {
-    let searchParams = new HttpParams().set('part', 'snippet').set('maxResults', '15').set('key', this.key);
+    let searchParams = new HttpParams().set('part', 'snippet').set('maxResults', '50').set('key', this.key);
     return this.http.get<any>(`${environment.api_url}?q=${query}`, {params: searchParams});
   }
 }

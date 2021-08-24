@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SeeVideoComponent } from './components/see-video/see-video.component';
 import { MoreVideosShowComponent } from './components/more-videos-show/more-videos-show.component';
+import { SecureDomPipe } from './pipes/secure-dom.pipe';
 
 
 
@@ -17,6 +18,7 @@ import { MoreVideosShowComponent } from './components/more-videos-show/more-vide
     SidebarComponent,
     SeeVideoComponent,
     MoreVideosShowComponent,
+    SecureDomPipe,
   ],
   imports: [
     CommonModule,

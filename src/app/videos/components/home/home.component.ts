@@ -19,9 +19,8 @@ export class HomeComponent implements OnInit {
   seeVideo!: boolean;
   channel!: string;
   channelId!: string;
-  description!: string;
-  publishedAt!: string;
-  title!: string;
+  showVideoSelected!: any;
+  url!: string;
 
   constructor(@Inject(DOCUMENT)
     private document: Document,
@@ -37,18 +36,9 @@ export class HomeComponent implements OnInit {
   public onSeeVideo(video: any): void {
     this.seeVideo = true;
     if (video) {
-      this.videoId = video.id.videoId;
-      this.channel = video.snippet.channelTitle;
-      this.channelId = video.snippet.channelId;
-      this.description = video.snippet.description;
-      this.publishedAt = video.snippet.publishedAt;
-      this.title = video.snippet.title;
+      this.showVideoSelected = video.snippet;
+      this.url = video.id.videoId;
     }
-  }
-
-  public url() {
-    const urlDangerous = `https://www.youtube.com/embed/${this.videoId}`;
-    return this.sanitizer.bypassSecurityTrustResourceUrl(urlDangerous);
   }
 
   @HostListener('window:scroll')
@@ -65,7 +55,6 @@ export class HomeComponent implements OnInit {
       this.youtubeService.searchVideos(query)
         .subscribe((data: any) => {
           this.seeVideo = false;
-          console.log(data);
           this.videos = data.items
           this.tokenNextPage = data.nextPageToken
         })

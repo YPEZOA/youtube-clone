@@ -7,13 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SeeVideoComponent implements OnInit {
 
-  @Input() videoId!: string;
-  @Input() title!: string;
-  @Input() description!: string;
-  @Input() channel!: string;
-  @Input() publishedAt!: string;
-  @Input() url!: any;
+  @Input() showVideoSelected: any;
   @Input() query!: string;
+  @Input() url!: string;
 
   constructor() {}
 
@@ -21,8 +17,9 @@ export class SeeVideoComponent implements OnInit {
   }
 
   public onSeeVideo(event: any) {
-    this.url = event;
-    console.log(this.url, event)
+    this.url = event.id.videoId;
+    this.showVideoSelected = event.snippet;
+    console.log(this.showVideoSelected);
   }
 
 }

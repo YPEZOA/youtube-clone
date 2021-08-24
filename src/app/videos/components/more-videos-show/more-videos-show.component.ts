@@ -14,28 +14,21 @@ export class MoreVideosShowComponent implements OnInit {
   data!: any;
   videoId!: string;
 
-  constructor(private videoService: YoutubeVideosService,
-              private sanitizer: DomSanitizer)
-  {}
+  constructor(private videoService: YoutubeVideosService) {}
 
   ngOnInit(): void {
-    this.showVideosCoincidence();
+    this.showVideosToQuery();
   }
 
-  private showVideosCoincidence(): void {
+  private showVideosToQuery(): void {
     this.videoService.searchVideosCoincidences(this.query)
     .subscribe(resp => {
       this.data = resp.items;
-      this.data.forEach((items: any) => {
-        this.videoId = items.id.videoId;
-      });
     });
   }
 
-  public handleSeeVideo(videoId: string): void {
-    const urlSecured = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${videoId}`);
-    return this.seeVideo.emit(urlSecured);
+  public handleSeeVideo(video: any): void {
+    return this.seeVideo.emit(video);
   }
-
 
 }

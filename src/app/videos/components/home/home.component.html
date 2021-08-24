@@ -21,11 +21,8 @@
 </div>
 
 <app-see-video *ngIf="seeVideo"
-  [videoId]="videoId"
-  [channel]="channel"
-  [description]="description"
-  [publishedAt]="publishedAt"
-  [title]="title"
+  [showVideoSelected]="showVideoSelected"
+  [url]="url"
   [query]="query"
-  [url]="url()">
+>
 </app-see-video>

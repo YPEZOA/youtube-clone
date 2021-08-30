@@ -10,7 +10,6 @@ import { YoutubeVideosService } from '../../services/youtube-videos.service';
 })
 export class HomeComponent implements OnInit {
   tokenNextPage!: string;
-  context!: string;
   query!: string;
   videoId!: string;
   showButton!: boolean;
@@ -20,6 +19,8 @@ export class HomeComponent implements OnInit {
   channelId!: string;
   showVideoSelected!: any;
   url!: string;
+  seeChannelInfo!: boolean;
+  channelData!: any[]
 
   constructor(@Inject(DOCUMENT)
     private document: Document,
@@ -27,7 +28,6 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.context = 'video'
     this.onWindowScroll();
   }
 
@@ -49,26 +49,35 @@ export class HomeComponent implements OnInit {
   public searchVideos(query: string): void {
     this.query = query;
     if (query === '' || query === undefined) return;
-    if (this.context === 'video' && query.trim().toLowerCase() !== '') {
+    if (query.trim().toLowerCase() !== '') {
       this.youtubeService.searchVideos(query)
         .subscribe((data: any) => {
+          const { items } = data
           this.seeVideo = false;
-          this.videos = data.items
+          this.videos = items
+          items.forEach((item: any) => {
+            this.channelId = item.snippet.channelId
+          });
           this.tokenNextPage = data.nextPageToken
         })
     }
   }
 
-  public getChannelInfo(): void {
-    this.youtubeService.getChannel('UCYwHhTxTAz6aLwMcyPitJjg')
-    .subscribe(resp => console.log(resp))
+  public onGetChannelInfo(channelId: string): void {
+    this.youtubeService.getChannel(channelId)
+    .subscribe(resp => {
+      this.seeVideo = false;
+      this.seeChannelInfo = true;
+      this.channelData = resp.items;
+    })
+    console.log(channelId)
   }
 
   public onGetMoreVideos(): void {
     this.youtubeService.searchVideos(this.query)
     .subscribe(resp => {
       this.videos.push(resp.items)
-    })
+    });
   }
 
   public onScrollTop(): void {

@@ -20,7 +20,7 @@ export class YoutubeVideosService {
   }
 
   getChannel(channelId: string): Observable<any> {
-    return this.http.get<any>(`${environment.api_channels}?id=${channelId}&key=${this.key}&part=snippet,contentDetails,statistics`);
+    return this.http.get<any>(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=UC-3006K4KyTpEk8X0nZlLzg&key=AIzaSyD22XLM2jVoiV9yRCfsmam_NUR0wrXy4Os`);
   }
 
   searchVideosCoincidences(query: string): Observable<any> {

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { YoutubeVideosService } from '../../services/youtube-videos.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,14 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
+  @Output() changeContext = new EventEmitter<string>();
+  @Input() channelId: string;
 
-  constructor() { }
+  constructor(private videoService: YoutubeVideosService) {
+    this.channelId = '';
+  }
 
   ngOnInit(): void {
   }
 
   public onHandleSearchChannels(): void {
-    console.log('click al boton');
   }
 
 }

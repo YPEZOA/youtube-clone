@@ -8,6 +8,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SeeVideoComponent } from './components/see-video/see-video.component';
 import { MoreVideosShowComponent } from './components/more-videos-show/more-videos-show.component';
 import { SecureDomPipe } from './pipes/secure-dom.pipe';
+import { ChannelComponent } from './components/channel/channel.component';
 
 
 
@@ -19,6 +20,7 @@ import { SecureDomPipe } from './pipes/secure-dom.pipe';
     SeeVideoComponent,
     MoreVideosShowComponent,
     SecureDomPipe,
+    ChannelComponent,
   ],
   imports: [
     CommonModule,

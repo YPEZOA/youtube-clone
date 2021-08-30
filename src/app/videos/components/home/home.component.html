@@ -1,14 +1,13 @@
-<app-header (searchCoincidences)="searchVideos($event)" [context]="context"></app-header>
-<app-sidebar></app-sidebar>
-<div *ngIf="!seeVideo" class="main-container">
+<app-header (searchCoincidences)="searchVideos($event)"></app-header>
+<div *ngIf="!seeVideo && !seeChannelInfo" class="main-container">
   <div class="data-container" *ngFor="let video of videos">
-    <div *ngIf="context === 'video'" class="container-results">
+    <div class="container-results">
       <div class="info-video">
         <img [src]="video.snippet.thumbnails.medium.url" alt="videoImage" class="videoImage" (click)="onSeeVideo(video)">
         <h5 class="video-title">{{ video.snippet.title }}</h5>
         <div class="channel-info">
-          <span class="channel-name"><small>Channel: </small> <strong>{{ video.snippet.channelTitle }}</strong></span>
-          <hr>
+          <span class="channel-name"><small>Channel:</small>{{ video.snippet.channelTitle }}</span>
+          <p class="small-text" (click)="onGetChannelInfo(video.snippet.channelId)">Click for channel information</p>
           <div class="description-video">
             <p>{{ video.snippet.description}}</p>
           </div>
@@ -20,9 +19,11 @@
   <i class="fa fa-arrow-up upToPage" *ngIf="this.showButton" (click)="onScrollTop()"></i>
 </div>
 
+<app-channel
+  [channelData]="channelData">
+</app-channel>
 <app-see-video *ngIf="seeVideo"
   [showVideoSelected]="showVideoSelected"
   [url]="url"
-  [query]="query"
->
+  [query]="query">
 </app-see-video>

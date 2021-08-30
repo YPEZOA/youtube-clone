@@ -12,4 +12,8 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public onHandleSearchChannels(): void {
+    console.log('click al boton');
+  }
+
 }

@@ -1,7 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Router } from '@angular/router';
 import { YoutubeVideosService } from '../../services/youtube-videos.service';
 
 @Component({
@@ -25,7 +24,6 @@ export class HomeComponent implements OnInit {
   constructor(@Inject(DOCUMENT)
     private document: Document,
     private youtubeService: YoutubeVideosService,
-    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {
